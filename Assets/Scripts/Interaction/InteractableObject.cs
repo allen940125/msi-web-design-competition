@@ -193,7 +193,7 @@ public class InteractableObject : MonoBehaviour
             return;
         }
         
-        GetItem(option.itemID);
+        InventoryManager.Instance.AddItemShowUI(option.itemID);
         
         // 更新互動狀態
         if (!option.canRepeat)
@@ -202,51 +202,7 @@ public class InteractableObject : MonoBehaviour
         }
     }
     
-    /// <summary>
-    /// 獲得物品
-    /// </summary>
-    /// <param name="id"></param>
-    public async void GetItem(int id, int quantity = 1)
-    {
-        ItemAcquisitionInformationWindow panel;
-
-        if (id == 0)
-        {
-            panel = await GameManager.Instance.UIManager.OpenPanel<ItemAcquisitionInformationWindow>(UIType.ItemAcquisitionInformationWindow);
-            panel.SwitchPanel("這裡什麼都沒有了。");
-            return;
-        }
     
-        // 獲取物品邏輯
-        try
-        {
-            GameManager.Instance.MainGameEvent.Send(new ItemAddedToBagEvent
-            {
-                ItemID = id,
-                Quantity = quantity
-            });
-        
-            var itemRuntimeData = InventoryManager.Instance.GetInventoryData(id);
-        
-            if (itemRuntimeData == null)
-            {
-                panel = await GameManager.Instance.UIManager.OpenPanel<ItemAcquisitionInformationWindow>(UIType.ItemAcquisitionInformationWindow);
-                panel.SwitchPanel("找不到指定物品的資料！");
-                return;
-            }
-        
-            string text = $"<b>獲得：</b> {itemRuntimeData.BaseTemplete.Name}\n<color=#cccccc>物品介紹：</color>\n{itemRuntimeData.BaseTemplete.ItemDescription}";
-    
-            panel = await GameManager.Instance.UIManager.OpenPanel<ItemAcquisitionInformationWindow>(UIType.ItemAcquisitionInformationWindow);
-            panel.SwitchPanel(text);
-        }
-        catch (Exception e)
-        {
-            panel = await GameManager.Instance.UIManager.OpenPanel<ItemAcquisitionInformationWindow>(UIType.ItemAcquisitionInformationWindow);
-            panel.SwitchPanel("獲取物品時發生未知錯誤！");
-            Debug.LogError(e);
-        }
-    }
     
     /// <summary>
     /// 檢查物品

@@ -34,9 +34,7 @@ public class DialogueEffectExecutor
         var itemData = param.Split('x');
         int itemId = int.Parse(itemData[0]);
         int quantity = itemData.Length > 1 ? int.Parse(itemData[1]) : 1;
-        InventoryManager.Instance.AddItem(itemId, quantity);
-        GameManager.Instance.UIManager.OpenPanel<ItemAcquisitionInformationWindow>(UIType.ItemAcquisitionInformationWindow);
-        //GameManager.Instance.UIManager.GetPanel<ItemAcquisitionInformationWindow>(UIType.ItemAcquisitionInformationWindow).SwitchPanel(itemId);
+        InventoryManager.Instance.AddItemShowUI(itemId, quantity);
         Debug.Log("Giving " + itemId + " to " + quantity);
     }
     

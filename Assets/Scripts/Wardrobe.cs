@@ -17,20 +17,20 @@ public class Wardrobe : InteractableObject
 
             if (currentTakeId == 1)
             {
-                GetItem(110);
+                InventoryManager.Instance.AddItemShowUI(110);
             }
             else if(currentTakeId == 2)
             {
-                GetItem(111);
+                InventoryManager.Instance.AddItemShowUI(111);
             }
             else if(currentTakeId == 3)
             {
-                GetItem(112);
+                InventoryManager.Instance.AddItemShowUI(112);
             }
         }
         else
         {
-            GetItem(0);
+            InventoryManager.Instance.AddItemShowUI(0);
         }
     }
 }

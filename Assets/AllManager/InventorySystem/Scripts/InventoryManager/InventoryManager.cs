@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Datamanager;
+using Game.UI;
 using Gamemanager;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -206,6 +207,52 @@ public class InventoryManager : Singleton<InventoryManager>
         Debug.LogWarning("背包內沒有足夠的物品可供刪除");
     }
 
+    /// <summary>
+    /// 獲得物品
+    /// </summary>
+    /// <param name="id"></param>
+    public async void AddItemShowUI(int id, int quantity = 1)
+    {
+        ItemAcquisitionInformationWindow panel;
+
+        if (id == 0)
+        {
+            panel = await GameManager.Instance.UIManager.OpenPanel<ItemAcquisitionInformationWindow>(UIType.ItemAcquisitionInformationWindow);
+            panel.SwitchPanel("這裡什麼都沒有了。");
+            return;
+        }
+    
+        // 獲取物品邏輯
+        try
+        {
+            GameManager.Instance.MainGameEvent.Send(new ItemAddedToBagEvent
+            {
+                ItemID = id,
+                Quantity = quantity
+            });
+        
+            var itemRuntimeData = InventoryManager.Instance.GetInventoryData(id);
+        
+            if (itemRuntimeData == null)
+            {
+                panel = await GameManager.Instance.UIManager.OpenPanel<ItemAcquisitionInformationWindow>(UIType.ItemAcquisitionInformationWindow);
+                panel.SwitchPanel("找不到指定物品的資料！");
+                return;
+            }
+        
+            string text = $"<b>獲得：</b> {itemRuntimeData.BaseTemplete.Name}\n<color=#cccccc>物品介紹：</color>\n{itemRuntimeData.BaseTemplete.ItemDescription}";
+    
+            panel = await GameManager.Instance.UIManager.OpenPanel<ItemAcquisitionInformationWindow>(UIType.ItemAcquisitionInformationWindow);
+            panel.SwitchPanel(text);
+        }
+        catch (Exception e)
+        {
+            panel = await GameManager.Instance.UIManager.OpenPanel<ItemAcquisitionInformationWindow>(UIType.ItemAcquisitionInformationWindow);
+            panel.SwitchPanel("獲取物品時發生未知錯誤！");
+            Debug.LogError(e);
+        }
+    }
+    
     /// <summary>
     /// Debug 用來顯示背包內容（按分類顯示）
     /// </summary>

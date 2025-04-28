@@ -1,5 +1,7 @@
+using System;
 using System.Linq;
 using Game.UI;
+using Gamemanager;
 using UnityEngine;
 
 public class InteractionManager : MonoBehaviour {
