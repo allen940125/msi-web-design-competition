@@ -2,3 +2,15 @@
 100,Money,Items/Money,Icons/Money,世界通用貨幣,Material,Common,0,0,1,Buffs/HealthBoost
 101,HealthPotion,Items/HealthPotion,Icons/HealthPotionIcon,紅藥水用於回復血量,Consumable,Common,1,10,50,Buffs/HealthBoost
 102,ManaPotion,Items/ManaPotion,Icons/ManaPotionIcon,藍藥水用於回復魔力,Consumable,Poor,1,10,30,Buffs/ManaBoost
+103,MSI玩偶,Items/None,Icons/MSI玩偶,一隻用紅色和黃色做成的玩偶，有著紅色的雙角和黃色的翅膀，以及一條紅色的尾巴上面有著黃色的骨板。,Consumable,Poor,1,10,30,Buffs/NoneBoost
+104,小黃書,Items/None,Icons/小黃書,書名：我才不會認輸，作者：Neko汁男。封面為一個人被綑綁住，不知為何書頁間黏黏的。,Consumable,Poor,1,10,30,Buffs/NoneBoost
+105,錄音機,Items/None,Icons/錄音機,藏在地板下的錄音機，裡面已經有錄好聲音了，或許能聽到什麼。,Consumable,Poor,1,10,30,Buffs/NoneBoost
+106,衛生紙團,Items/None,Icons/衛生紙團,揉成一團丟在電腦旁的衛生紙團，不知道為什麼濕濕的。,Consumable,Poor,1,10,30,Buffs/NoneBoost
+107,書本1(如何受歡迎),Items/None,Icons/書本1(如何受歡迎),書名：如何受歡迎，作者：半杯先生。書內寫著如何受人歡迎，例如要穿搭帥氣，學會如何說話風趣，將自己打扮得漂亮等。但卻在每個章節的結尾販賣自己的其他書。,Consumable,Poor,1,10,30,Buffs/NoneBoost
+108,書本2(如何做出帥氣髮型),Items/None,Icons/書本2(如何做出帥氣髮型),書名：如何做出帥氣髮型，作者：半杯先生。教導你如何做出帥氣的髮型，但其實只是將帥哥的髮型照抄下來而已。。,Consumable,Poor,1,10,30,Buffs/NoneBoost
+109,書本3(如何穿搭)：,Items/None,Icons/書本3(如何穿搭),書名：如何穿搭，作者：半杯先生。教導你如何穿的帥氣，穿出自信。但其實只是將藝人的衣服照抄下來而已。。,Consumable,Poor,1,10,30,Buffs/NoneBoost
+110,動漫衣,Items/None,Icons/動漫衣,很油的衣服。,Consumable,Poor,1,10,30,Buffs/NoneBoost
+111,Cosplay衣,Items/None,Icons/Cosplay衣,很贊的衣服。,Consumable,Poor,1,10,30,Buffs/NoneBoost
+112,MSI戰衣,Items/None,Icons/MSI戰衣,非常厲害!。,Consumable,Poor,1,10,30,Buffs/NoneBoost
+113,MSI筆電,Items/None,Icons/MSI筆電,全黑的機身，配上頂蓋上那用藍色和白色點綴出來的龍首，以及一顆橘紅色的眼睛吸引住目光。,Consumable,Poor,1,10,30,Buffs/NoneBoost
+114,MSI耳機,Items/None,Icons/MSI耳機,純黑色(取決與美術事後畫的顏色改變此處)的機身，配上標誌性的龍標示。,Consumable,Poor,1,10,30,Buffs/NoneBoost

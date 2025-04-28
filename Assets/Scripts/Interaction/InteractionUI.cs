@@ -41,12 +41,6 @@ public class InteractionUI : MonoBehaviour {
         currentObject = null;
     }
 
-    public void SelectOption() {
-        if (currentObject != null && selectedIndex < buttons.Count) {
-            currentObject.Interact(selectedIndex);
-        }
-    }
-
     private void ClearOptions() {
         foreach (var btn in buttons) Destroy(btn.gameObject);
         buttons.Clear();

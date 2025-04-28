@@ -161,8 +161,11 @@ public class InteractableObject : MonoBehaviour
         }
     }
 
-    // 修改後的 AcquireItem 方法
-    protected virtual async void AcquireItem(InteractionOption option)
+    /// <summary>
+    /// 檢查按鈕獲取物品
+    /// </summary>
+    /// <param name="option"></param>
+    private async void AcquireItem(InteractionOption option)
     {
         ItemAcquisitionInformationWindow panel;
 
@@ -190,26 +193,50 @@ public class InteractableObject : MonoBehaviour
             return;
         }
         
+        GetItem(option.itemID);
+        
+        // 更新互動狀態
+        if (!option.canRepeat)
+        {
+            option.hasInteracted = true;
+        }
+    }
+    
+    /// <summary>
+    /// 獲得物品
+    /// </summary>
+    /// <param name="id"></param>
+    public async void GetItem(int id, int quantity = 1)
+    {
+        ItemAcquisitionInformationWindow panel;
+
+        if (id == 0)
+        {
+            panel = await GameManager.Instance.UIManager.OpenPanel<ItemAcquisitionInformationWindow>(UIType.ItemAcquisitionInformationWindow);
+            panel.SwitchPanel("這裡什麼都沒有了。");
+            return;
+        }
+    
         // 獲取物品邏輯
         try
         {
             GameManager.Instance.MainGameEvent.Send(new ItemAddedToBagEvent
             {
-                ItemID = option.itemID,
-                Quantity = 1
+                ItemID = id,
+                Quantity = quantity
             });
-            
-            var itemRuntimeData = InventoryManager.Instance.GetInventoryData(option.itemID);
-            
+        
+            var itemRuntimeData = InventoryManager.Instance.GetInventoryData(id);
+        
             if (itemRuntimeData == null)
             {
                 panel = await GameManager.Instance.UIManager.OpenPanel<ItemAcquisitionInformationWindow>(UIType.ItemAcquisitionInformationWindow);
                 panel.SwitchPanel("找不到指定物品的資料！");
                 return;
             }
-            
-            string text = $"<b>獲得：</b> {itemRuntimeData.BaseTemplete.Name}\n<color=#cccccc>物品介紹：</color>\n{itemRuntimeData.BaseTemplete.ItemDescription}";
         
+            string text = $"<b>獲得：</b> {itemRuntimeData.BaseTemplete.Name}\n<color=#cccccc>物品介紹：</color>\n{itemRuntimeData.BaseTemplete.ItemDescription}";
+    
             panel = await GameManager.Instance.UIManager.OpenPanel<ItemAcquisitionInformationWindow>(UIType.ItemAcquisitionInformationWindow);
             panel.SwitchPanel(text);
         }
@@ -219,22 +246,25 @@ public class InteractableObject : MonoBehaviour
             panel.SwitchPanel("獲取物品時發生未知錯誤！");
             Debug.LogError(e);
         }
-
-        // 更新互動狀態
-        if (!option.canRepeat)
-        {
-            option.hasInteracted = true;
-        }
     }
-
-// 在 InteractableObject 中添加物品檢查基礎方法
+    
+    /// <summary>
+    /// 檢查物品
+    /// </summary>
+    /// <param name="itemID"></param>
+    /// <returns></returns>
     protected bool CheckHasItem(int itemID) {
         // 假設你的物品系統存在於 GameManager 中
         return InventoryManager.Instance.GetInventoryData(itemID) != null;
     }
-
-// 修改 CheckConditions 方法
-    protected bool CheckConditions(InteractionOption option, out string failMessage) {
+    
+    /// <summary>
+    /// 檢查條件
+    /// </summary>
+    /// <param name="option"></param>
+    /// <param name="failMessage"></param>
+    /// <returns></returns>
+    public bool CheckConditions(InteractionOption option, out string failMessage) {
         foreach (var condition in option.conditions) {
             bool result = condition.conditionType switch {
                 InteractionCondition.ConditionType.HasItem => 
@@ -253,24 +283,14 @@ public class InteractableObject : MonoBehaviour
         failMessage = "";
         return true;
     }
-
-// 新增失敗提示方法
+    
+    /// <summary>
+    /// 顯示失敗消息
+    /// </summary>
+    /// <param name="message"></param>
     private async void ShowFailPrompt(string message) {
         var panel = await GameManager.Instance.UIManager
             .OpenPanel<ItemAcquisitionInformationWindow>(UIType.ItemAcquisitionInformationWindow);
         panel.SwitchPanel(message);
-    }
-    
-    public bool CheckConditionsMet(InteractionOption option) {
-        foreach (var condition in option.conditions) {
-            bool result = condition.conditionType switch {
-                InteractionCondition.ConditionType.HasItem => CheckHasItem(condition.requiredItemID),
-                InteractionCondition.ConditionType.CustomCheck => (bool)GetType().GetMethod(condition.customMethodName)?
-                    .Invoke(this, null),
-                _ => true
-            };
-            if (!result) return false;
-        }
-        return true;
     }
 }

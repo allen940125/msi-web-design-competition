@@ -28,11 +28,9 @@ public class InteractionManager : MonoBehaviour {
         }
     }
     
-    void Update() {
-        // 按 F 鍵時更新一次偵測
-        if (Input.GetKeyDown(KeyCode.F)) {
-            DetectInteractableObjects();
-        }
+    void Update()
+    {
+        HandleInteractionInput();
         
         // 持續檢查當前物件是否還在範圍內
         if (currentObject != null) {
@@ -46,11 +44,11 @@ public class InteractionManager : MonoBehaviour {
                 }
             }
         }
-        
-        HandleInteractionInput();
     }
 
-// InteractionManager.cs 修改后的 DetectInteractableObjects 方法
+    /// <summary>
+    /// 偵測可互動物件
+    /// </summary>
     void DetectInteractableObjects() {
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, interactionRadius, interactionLayer);
     
@@ -77,7 +75,7 @@ public class InteractionManager : MonoBehaviour {
                                            obj.interactionOptions.Any(opt => 
                                                opt != null && 
                                                opt.ShouldShow() && 
-                                               obj.CheckConditionsMet(opt)
+                                               obj.CheckConditions(opt,out string failMessage)
                                            );
     
                 return globalPass && hasAvailableOptions;
@@ -90,10 +88,10 @@ public class InteractionManager : MonoBehaviour {
         {
             // 直接检查是否有可立即触发的有效选项
             var immediateOption = detectedObject.interactionOptions?
-                .FirstOrDefault(opt => opt != null && 
-                                       opt.isImmediate && 
-                                       opt.ShouldShow() && 
-                                       detectedObject.CheckConditionsMet(opt));
+                .FirstOrDefault(opt => opt != null &&
+                                       opt.isImmediate &&
+                                       opt.ShouldShow() &&
+                                       detectedObject.CheckConditions(opt, out string failMessage));
         
             if (immediateOption != null) 
             {
@@ -112,9 +110,16 @@ public class InteractionManager : MonoBehaviour {
         currentObject = detectedObject;
     }
 
-    void HandleInteractionInput() {
-        if (currentObject != null && Input.GetKeyDown(KeyCode.E)) {
-            interactionUI.SelectOption();
+    /// <summary>
+    /// 處理互動輸入
+    /// </summary>
+    void HandleInteractionInput()
+    {
+        if (Input.GetKeyDown(KeyCode.F)) {
+            if (!GameManager.Instance.UIManager.GetPanel<DialogueWindow>(UIType.DialogueWindow))
+            {
+                DetectInteractableObjects();
+            }
         }
     }
 }

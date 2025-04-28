@@ -54,11 +54,11 @@ namespace Game.UI
 
         public void Update()
         {
-            // 測試用而已：按 S 開啟商店，B 顯示快取與 panel 狀態，D 關閉所有 UI
-            if (UnityEngine.Input.GetKeyDown(KeyCode.S))
-            {
-                OpenPanel<StoreMenu>(UIType.StoreMenu);
-            }
+            // // 測試用而已：按 S 開啟商店，B 顯示快取與 panel 狀態，D 關閉所有 UI
+            // if (UnityEngine.Input.GetKeyDown(KeyCode.S))
+            // {
+            //     OpenPanel<StoreMenu>(UIType.StoreMenu);
+            // }
         }
 
         /// <summary>

@@ -116,6 +116,7 @@ public class DialogueManager : Singleton<DialogueManager>
 
             case DialogueLineType.End:
                 OnDialogueEnd?.Invoke();
+                DialogueEffectExecutor.ExecuteEffect(line.Effect);
                 break;
         }
     }
@@ -200,7 +201,8 @@ public class DialogueManager : Singleton<DialogueManager>
                     var endId = int.Parse(cells[1]);
                     _linesById[endId] = new DialogueLine {
                         Id = endId,
-                        LineType = DialogueLineType.End
+                        LineType = DialogueLineType.End,
+                        Effect = cells[6],
                     };
                     break;
 
