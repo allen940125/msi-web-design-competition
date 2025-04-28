@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: CSV
+  m_EditorClassIdentifier: 
+  m_GroupName: CSV
+  m_GUID: 59449fbc0f5c47f478085f62f9fc00f6
+  m_SerializeEntries:
+  - m_GUID: 0d4d06be2e10b8b4cb99a5caab40fbc6
+    m_Address: CSV/ShamanKingCSV
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2dd7029563a633e4aa7e3a72dabb8171
+    m_Address: CSV/GameEffectDatabase
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6836dca90a207de46956aa8e4f562e2e
+    m_Address: CSV/StoreDatabase
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 77b81db549bcdac47a2073e348d0efbb
+    m_Address: CSV/ItemDatabase
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c823d349513d81046ad6ca8ee5376e40
+    m_Address: CSV/UIDatabase
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: f673e50e368c0184b9bb882c62ac9250, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: e6efece72cef2ef4681bc01af1213fbe, type: 2}
+    - {fileID: 11400000, guid: 5b906bf16815d5c4fb31b47375e151e4, type: 2}
