@@ -24,6 +24,9 @@ public class DialogueEffectExecutor
                 case "quest":
                     HandleQuestEffect(param);
                     break;
+                case "npc":
+                    HandleNpcEffect(param);
+                    break;
                 // 可擴充其他效果...
             }
         }
@@ -56,6 +59,22 @@ public class DialogueEffectExecutor
                 break;
             case "failed":
                 QuestManager.Instance.FailedQuest(questID);
+                break;
+        }
+    }
+    
+    private static void HandleNpcEffect(string param)
+    {
+        switch (param)
+        {
+            case "inprogress":
+                InteractionManager.Instance.SwitchNpcStatus(NpcStatus.InProgress);
+                break;
+            case "completed":
+                InteractionManager.Instance.SwitchNpcStatus(NpcStatus.Completed);
+                break;
+            case "failed":
+                InteractionManager.Instance.SwitchNpcStatus(NpcStatus.Failed);
                 break;
         }
     }

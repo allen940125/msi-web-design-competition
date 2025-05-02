@@ -4,23 +4,24 @@ public class Chair : InteractableObject
 {
     [SerializeField] private Transform sitOnPos;
     
+    [SerializeField] TextAsset dialougeChair;
+    [SerializeField] TextAsset dialougeSitOnChair;
+    public void ChickChair()
+    {
+        Debug.Log("Chick Chair");
+        DialogueManager.Instance.LoadAndStartDialogue(dialougeChair);
+    }
+    
     public void SitOnChair()
     {
+        Debug.Log("Chick Sit On Chair");
+        DialogueManager.Instance.LoadAndStartDialogue(dialougeSitOnChair);
+        
         GameManager.Instance.Player.transform.position = sitOnPos.position;
         GameManager.Instance.Player.transform.rotation = sitOnPos.rotation;
         
         InteractionManager.Instance.isOnChair = true;
     }
-
-    // void Update()
-    // {
-    //     if (InteractionManager.Instance.isOnChair)
-    //     {
-    //         if(Inp)
-    //     }
-    //
-    // }
-    //
 
     // 自訂條件檢查方法
     private bool CheckPlayerNoOnChair() {
