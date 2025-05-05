@@ -284,9 +284,21 @@ namespace Game.UI
                 Debug.LogError($"PrefabPath missing for UI {uiType}");
                 return null;
             }
-            return tpl.PrefabPath;
+            return GetPrefabAsResources(tpl.PrefabPath);
+        }
+        
+        private GameObject GetPrefabAsResources(string prefabPath)
+        {
+            var prefab = Resources.Load<GameObject>(prefabPath);
+            Debug.Log("從Resources讀取");
+            if (prefab == null)
+            {
+                Debug.LogError($"[UI] Failed to load prefab at Resources/{prefabPath}");
+            }
+            return prefab;
         }
 
+        
         #endregion
 
         #region 幫助方法

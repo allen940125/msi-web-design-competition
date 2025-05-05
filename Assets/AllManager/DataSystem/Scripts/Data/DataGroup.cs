@@ -116,8 +116,9 @@ public class UIDataBaseTemplete :IWithIdData, IWithNameData
     public int Id { get; set; }
     public string Name { get; set; }
     public string UIGroup { get; set; }
-    public GameObject PrefabPath { get; set; }
-
+    //public GameObject PrefabPath { get; set; }
+    public string PrefabPath { get; set; }
+    
     public UIDataBaseTemplete Clone()
     {
         return new UIDataBaseTemplete()
@@ -198,7 +199,8 @@ public class ItemDataBaseTemplete :IWithIdData, IWithNameData
 {
     public int Id { get; set; }
     public string Name { get; set; }
-    public GameObject PrefabPath { get; set; }
+    //public GameObject PrefabPath { get; set; }
+    public string PrefabPath { get; set; }
     public Sprite ItemIconPath { get; set; }
     public string ItemDescription { get; set; }
     public ItemControllerType ItemControllerType { get; set; }
@@ -206,8 +208,8 @@ public class ItemDataBaseTemplete :IWithIdData, IWithNameData
     public int ItemUseTimes { get; set; }
     public float LifeTime { get; set; }
     public int BaseValue { get; set; }
-    public GameObject BuffPrefabPath { get; set; }
-
+    //public GameObject BuffPrefabPath { get; set; }
+    public string BuffPrefabPath { get; set; }
     public ItemDataBaseTemplete Clone()
     {
         return new ItemDataBaseTemplete()

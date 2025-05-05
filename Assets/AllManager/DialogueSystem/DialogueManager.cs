@@ -45,8 +45,12 @@ public class DialogueManager : Singleton<DialogueManager>
     /// </summary>
     public void Proceed()
     {
+        if (_linesById == null)
+        {
+            return;            
+        }
         var line = _linesById[_currentLineId];
-    
+
         if (line.LineType != DialogueLineType.Dialogue) 
             return;
 
