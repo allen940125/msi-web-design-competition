@@ -244,6 +244,7 @@ public class InventoryManager : Singleton<InventoryManager>
     
             panel = await GameManager.Instance.UIManager.OpenPanel<ItemAcquisitionInformationWindow>(UIType.ItemAcquisitionInformationWindow);
             panel.SwitchPanel(text);
+            panel.SwitchImage(itemRuntimeData.BaseTemplete.ItemIconPath);
         }
         catch (Exception e)
         {

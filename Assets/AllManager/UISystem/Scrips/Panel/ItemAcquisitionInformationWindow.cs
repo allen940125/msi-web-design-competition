@@ -11,9 +11,10 @@ namespace Game.UI
     
     public class ItemAcquisitionInformationWindow : BasePanel
     {
-        public GameObject informationPanel; // UI 面板
-        public TMP_Text textItem;
-        public Button closeButton;
+        [SerializeField] private GameObject informationPanel; // UI 面板
+        [SerializeField] private TMP_Text informationText;
+        [SerializeField] private Image informationImage;
+        [SerializeField] private Button closeButton;
 
         protected override void Awake()
         {
@@ -33,7 +34,12 @@ namespace Game.UI
 
         public void SwitchPanel(string textItem) 
         {
-            this.textItem.text = textItem;
+            informationText.text = textItem;
+        }
+
+        public void SwitchImage(Sprite image)
+        {
+            informationImage.sprite = image;
         }
     }
 }

@@ -69,4 +69,10 @@ public class DialogueWindow : BasePanel
         ClosePanel();
         
     }
+
+    public override void ClosePanel()
+    {
+        base.ClosePanel();
+        GameManager.Instance.MainGameMediator.RealTimePlayerData.PlayerMovementMultiplier = 1f;
+    }
 }

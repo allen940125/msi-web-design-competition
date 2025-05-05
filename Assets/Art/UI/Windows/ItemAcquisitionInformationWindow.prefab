@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a24aa0685dccdfd4fbd633210d29dc31, type: 3}
+  m_Sprite: {fileID: -7336482313278731926, guid: c455587dffd39ae479e4a2225309d148, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -351,7 +351,8 @@ MonoBehaviour:
   audio_NormalBtn:
     audioClip: {fileID: 0}
   informationPanel: {fileID: 6167951542013827802}
-  textItem: {fileID: 1219361857688921465}
+  informationText: {fileID: 1219361857688921465}
+  informationImage: {fileID: 3622130508463596672}
   closeButton: {fileID: 907586970178990113}
 --- !u!1 &3648106527763081888
 GameObject:

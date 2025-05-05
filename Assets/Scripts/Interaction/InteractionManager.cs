@@ -124,4 +124,9 @@ public class InteractionManager : MonoBehaviour {
             }
         }
     }
+
+    public void SwitchNpcStatus(NpcStatus npcStatus)
+    {
+        currentObject.currentNpcStatus = npcStatus;
+    }
 }

@@ -5,11 +5,13 @@ public class PlayerController : MonoBehaviour {
     private Rigidbody2D rb;
     private Vector2 movement;
 
-    void Start() {
+    void Start() 
+    {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update() {
+    void Update() 
+    {
         // 取得水平與垂直輸入
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
@@ -23,7 +25,9 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    void FixedUpdate() {
-        rb.linearVelocity = movement * moveSpeed;
+    void FixedUpdate() 
+    {
+        Debug.Log(GameManager.Instance.MainGameMediator.RealTimePlayerData.PlayerMovementMultiplier);
+        rb.linearVelocity = movement * (GameManager.Instance.MainGameMediator.RealTimePlayerData.PlayerMovementMultiplier * moveSpeed);
     }
 }

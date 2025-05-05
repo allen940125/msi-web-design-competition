@@ -98,7 +98,7 @@ public class DialogueManager : Singleton<DialogueManager>
             if (!DialogueConditionChecker.CheckCondition(line.Condition))
             {
                 Debug.Log($"條件未滿足，跳過對話ID: {line.Id}，跳轉到: {line.NextLineId}");
-                JumpTo(line.NextLineId); // 遞迴繼續向下找滿足的對話
+                JumpTo(line.Id + 1); // 遞迴繼續向下找滿足的對話
                 return;
             }
         }
@@ -222,6 +222,22 @@ public class DialogueManager : Singleton<DialogueManager>
     }
     
     /// <summary>
+    /// 載入資源並開始對話
+    /// </summary>
+    /// <param name="csvfile"></param>
+    public void LoadAndStartDialogue(TextAsset csvfile)
+    {
+        // 先開啟UI面板再載入數據
+        GameManager.Instance.UIManager.OpenPanel<DialogueWindow>(UIType.DialogueWindow);
+    
+        // 確保UI訂閱事件後再初始化對話
+        GameManager.Instance.MainGameMediator.RealTimePlayerData.PlayerMovementMultiplier = 0f;
+        _csvFile = csvfile;
+        LoadDialogueCsv(_csvFile); // 此時UI面板已啟用，事件已訂閱
+    }
+
+    
+    /// <summary>
     /// 載入並解析CSV對話數據
     /// </summary>
     /// <param name="csv">包含對話數據的文本資源</param>
@@ -259,20 +275,6 @@ public class DialogueManager : Singleton<DialogueManager>
             Debug.Log(log);
         }
         Debug.Log("===== 打印完畢 =====");
-    }
-
-    /// <summary>
-    /// 載入資源並開始對話
-    /// </summary>
-    /// <param name="csvfile"></param>
-    public void LoadAndStartDialogue(TextAsset csvfile)
-    {
-        // 先開啟UI面板再載入數據
-        GameManager.Instance.UIManager.OpenPanel<DialogueWindow>(UIType.DialogueWindow);
-    
-        // 確保UI訂閱事件後再初始化對話
-        _csvFile = csvfile;
-        LoadDialogueCsv(_csvFile); // 此時UI面板已啟用，事件已訂閱
     }
     
     /// <summary>

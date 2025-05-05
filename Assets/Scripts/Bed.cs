@@ -6,8 +6,8 @@ public class Bed : InteractableObject
     [SerializeField] TextAsset dialougeUnderBed;
     public void ChickOnBed()
     {
-        DialogueManager.Instance.LoadAndStartDialogue(dialougeOnBed);
         Debug.Log("Chick On Bed");
+        DialogueManager.Instance.LoadAndStartDialogue(dialougeOnBed);
     }
     
     public void ChickUnderBed()

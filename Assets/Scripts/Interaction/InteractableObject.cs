@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class InteractableObject : MonoBehaviour
 {
+    [Header("NPC狀態")]
+    public NpcStatus currentNpcStatus;
+    
     #region 是否可互動
     
     [Header("全域互動條件")]
@@ -249,4 +252,12 @@ public class InteractableObject : MonoBehaviour
             .OpenPanel<ItemAcquisitionInformationWindow>(UIType.ItemAcquisitionInformationWindow);
         panel.SwitchPanel(message);
     }
+}
+
+public enum NpcStatus
+{
+    NotStarted,  // 未开始(默认)
+    InProgress,  // 进行中
+    Completed,   // 已完成
+    Failed,     // 失敗
 }
