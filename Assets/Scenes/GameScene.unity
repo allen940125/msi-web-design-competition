@@ -483,6 +483,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ItemAcquisitionInformationWindow
       objectReference: {fileID: 0}
+    - target: {fileID: 2045704587031461588, guid: 992ad375e8c79794db3c573f623f0445, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

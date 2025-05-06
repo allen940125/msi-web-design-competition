@@ -351,7 +351,8 @@ MonoBehaviour:
   audio_NormalBtn:
     audioClip: {fileID: 0}
   informationPanel: {fileID: 6167951542013827802}
-  textItem: {fileID: 1219361857688921465}
+  informationText: {fileID: 1219361857688921465}
+  informationImage: {fileID: 3622130508463596672}
   closeButton: {fileID: 907586970178990113}
 --- !u!1 &3648106527763081888
 GameObject:
