@@ -1,11 +1,14 @@
 using System;
 using System.Collections.Generic;
+using Game.Audio;
 using Game.UI;
 using Gamemanager;
 using UnityEngine;
 
 public class InteractableObject : MonoBehaviour
 {
+    [Header("音效")]
+    [SerializeField] protected AudioData audioData;
     [Header("NPC狀態")]
     public NpcStatus currentNpcStatus;
     
@@ -224,6 +227,7 @@ public class InteractableObject : MonoBehaviour
     /// <param name="failMessage"></param>
     /// <returns></returns>
     public bool CheckConditions(InteractionOption option, out string failMessage) {
+        //AudioManager.Instance.PlayRandomSFX(audioData);
         foreach (var condition in option.conditions) {
             bool result = condition.conditionType switch {
                 InteractionCondition.ConditionType.HasItem => 

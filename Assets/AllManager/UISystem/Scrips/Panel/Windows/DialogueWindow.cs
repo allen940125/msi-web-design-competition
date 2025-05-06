@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Game.UI;
@@ -28,8 +29,15 @@ public class DialogueWindow : BasePanel
         dm.OnOptionsAvailable -= ShowOptions;
         dm.OnDialogueEnd      -= ClosePanel;
         dm.OnStoreOpened      -= OpenStore;
+        
+        GameManager.Instance.Player.GetComponent<PlayerController>().isFinding = false;
     }
-    
+
+    private void Update()
+    {
+        GameManager.Instance.Player.GetComponent<PlayerController>().isFinding = true;
+    }
+
     private void HandleLine(DialogueLine line)
     {
         characterNameText.text = line.CharacterName;

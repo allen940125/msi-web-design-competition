@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Cysharp.Threading.Tasks;
 using Game.UI;
 using UnityEngine;
 
@@ -23,7 +24,7 @@ public class DialogueManager : Singleton<DialogueManager>
     [SerializeField] private TextAsset _csvFile;             // 對話數據的CSV文件
 
     public bool isItemAcquisitionInformationWindowOpen;
-    
+    public bool _canProceed = false;
     protected override void Awake()
     {
         base.Awake();
@@ -38,15 +39,16 @@ public class DialogueManager : Singleton<DialogueManager>
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            if (isItemAcquisitionInformationWindowOpen)
+            if (!_canProceed || isItemAcquisitionInformationWindowOpen)
             {
                 return;
             }
-            
+
             Debug.Log("下一行");
             Proceed();
         }
     }
+
 
     /// <summary>
     /// 繼續進行對話（用於普通對話的推進）
@@ -233,16 +235,19 @@ public class DialogueManager : Singleton<DialogueManager>
     /// 載入資源並開始對話
     /// </summary>
     /// <param name="csvfile"></param>
-    public void LoadAndStartDialogue(TextAsset csvfile)
+    public async void LoadAndStartDialogue(TextAsset csvfile)
     {
-        // 先開啟UI面板再載入數據
         GameManager.Instance.UIManager.OpenPanel<DialogueWindow>(UIType.DialogueWindow);
-    
-        // 確保UI訂閱事件後再初始化對話
+
         GameManager.Instance.MainGameMediator.RealTimePlayerData.PlayerMovementMultiplier = 0f;
         _csvFile = csvfile;
-        LoadDialogueCsv(_csvFile); // 此時UI面板已啟用，事件已訂閱
+        LoadDialogueCsv(_csvFile);
+
+        _canProceed = false;
+        await UniTask.Delay(TimeSpan.FromSeconds(0.2f));
+        _canProceed = true;
     }
+
 
     
     /// <summary>
@@ -252,8 +257,9 @@ public class DialogueManager : Singleton<DialogueManager>
     public void LoadDialogueCsv(TextAsset csv)
     {
         ParseCsv(csv);
+        //_currentLineId = 1;
         _currentLineId = _linesById.Keys.Min();
-        //Debug.Log($"初始載入ID:{_currentLineId}"); // 應為0
+        Debug.Log($"初始載入ID:{_currentLineId}"); // 應為0
         DispatchCurrent(); // 確保此處觸發OnLineChanged
     }
     

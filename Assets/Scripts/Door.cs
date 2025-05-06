@@ -1,3 +1,4 @@
+using Game.Audio;
 using UnityEngine;
 
 public class Door : InteractableObject
@@ -6,6 +7,7 @@ public class Door : InteractableObject
     public void ChickDoor()
     {
         Debug.Log("Chick Door");
+        //AudioManager.Instance.PlayRandomSFX(base.audioData);
         DialogueManager.Instance.LoadAndStartDialogue(dialougeDoor);
     }
 }

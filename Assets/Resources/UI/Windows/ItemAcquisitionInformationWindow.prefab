@@ -354,6 +354,8 @@ MonoBehaviour:
   informationText: {fileID: 1219361857688921465}
   informationImage: {fileID: 3622130508463596672}
   closeButton: {fileID: 907586970178990113}
+  audioData:
+    audioClip: {fileID: 8300000, guid: 290bb314fae8bea4b8c935aa3fb7d650, type: 3}
 --- !u!1 &3648106527763081888
 GameObject:
   m_ObjectHideFlags: 0

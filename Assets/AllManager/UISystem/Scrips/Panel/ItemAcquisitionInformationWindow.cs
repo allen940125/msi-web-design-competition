@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Game.Audio;
 using Game.UI;
 using Gamemanager;
 using TMPro;
@@ -16,9 +17,13 @@ namespace Game.UI
         [SerializeField] private Image informationImage;
         [SerializeField] private Button closeButton;
 
+        [Header("音樂")]
+        [SerializeField] private AudioData audioData;
+        
         protected override void Awake()
         {
             base.Awake();
+            AudioManager.Instance.PlayRandomSFX(audioData);
             closeButton.onClick.AddListener(ClosePanel);
             DialogueManager.Instance.isItemAcquisitionInformationWindowOpen = true;
         }

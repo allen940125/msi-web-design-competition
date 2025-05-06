@@ -46,6 +46,19 @@ public class InteractionManager : MonoBehaviour {
                 }
             }
         }
+
+        if (isOnChair)
+        {
+            GameManager.Instance.Player.GetComponent<PlayerController>().isSitDown = true;
+            if (GameManager.Instance.Player.GetComponent<PlayerController>().isMoving)
+            {
+                isOnChair = false;
+            }
+        }
+        else
+        {
+            GameManager.Instance.Player.GetComponent<PlayerController>().isSitDown = false;
+        }
     }
 
     /// <summary>

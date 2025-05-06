@@ -1,36 +1,45 @@
-using System;
-using Game.UI;
-using Gamemanager;
+using Game.Audio;
 using UnityEngine;
 
 public class Wardrobe : InteractableObject
 {
     [SerializeField] private int currentTakeId;
-    [SerializeField] private int maxTakeId = 3;
+    [SerializeField] private int maxTakeId = 4;
+    
+    [Header("書櫃")]
+    [SerializeField] TextAsset dialougeOnWardrobe1;
+    [SerializeField] TextAsset dialougeOnWardrobe2;
+    [SerializeField] TextAsset dialougeOnWardrobe3;
+    [SerializeField] TextAsset dialougeOnWardrobe4;
     
     public void TakeClothingOnWardrobe()
     {
-        Debug.Log("TakeBookOnCabinet 在衣櫃上拿衣服");
-        if (currentTakeId <= maxTakeId - 1)
+        Debug.Log("TakeClothingOnWardrobe 在衣櫃上拿衣服");
+        AudioManager.Instance.PlayRandomSFX(base.audioData);
+        if (currentTakeId <= maxTakeId)
         {
             currentTakeId++;
-
+        
             if (currentTakeId == 1)
             {
-                InventoryManager.Instance.AddItemShowUI(110);
+                DialogueManager.Instance.LoadAndStartDialogue(dialougeOnWardrobe1);
             }
             else if(currentTakeId == 2)
             {
-                InventoryManager.Instance.AddItemShowUI(111);
+                DialogueManager.Instance.LoadAndStartDialogue(dialougeOnWardrobe2);
             }
             else if(currentTakeId == 3)
             {
-                InventoryManager.Instance.AddItemShowUI(112);
+                DialogueManager.Instance.LoadAndStartDialogue(dialougeOnWardrobe3);
+            }
+            else if(currentTakeId == 4)
+            {
+                DialogueManager.Instance.LoadAndStartDialogue(dialougeOnWardrobe4);
             }
         }
         else
         {
-            InventoryManager.Instance.AddItemShowUI(0);
+            DialogueManager.Instance.LoadAndStartDialogue(dialougeOnWardrobe4);
         }
     }
 }

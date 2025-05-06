@@ -1,3 +1,4 @@
+using Game.Audio;
 using UnityEngine;
 
 public class Table : InteractableObject
@@ -13,12 +14,14 @@ public class Table : InteractableObject
     public void ChickOnTable()
     {
         Debug.Log("Chick On Table");
+        AudioManager.Instance.PlayRandomSFX(base.audioData);
         DialogueManager.Instance.LoadAndStartDialogue(dialougeOnTable);
     }
     
     public void ChickSafeOnTable()
     {
         Debug.Log("Chick Safe On Table 打開保險箱");
+        //AudioManager.Instance.PlayRandomSFX(base.audioData);
         DialogueManager.Instance.LoadAndStartDialogue(dialougeOnTableSafe);
         uIInvestigateSafe.SetActive(true);
     }
@@ -26,6 +29,7 @@ public class Table : InteractableObject
     public void ChickOnBigTable()
     {
         Debug.Log("Chick On BigTable");
+        AudioManager.Instance.PlayRandomSFX(base.audioData);
         DialogueManager.Instance.LoadAndStartDialogue(dialougeOnBigTable);
     }
     

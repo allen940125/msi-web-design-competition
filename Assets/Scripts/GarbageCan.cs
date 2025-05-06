@@ -1,3 +1,4 @@
+using Game.Audio;
 using UnityEngine;
 
 public class GarbageCan : InteractableObject
@@ -6,6 +7,7 @@ public class GarbageCan : InteractableObject
     public void ChickGarbageCan()
     {
         Debug.Log("Chick GarbageCan");
+        AudioManager.Instance.PlayRandomSFX(base.audioData);
         DialogueManager.Instance.LoadAndStartDialogue(dialougeGarbageCan);
     }
 }

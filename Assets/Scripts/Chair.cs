@@ -1,3 +1,4 @@
+using Game.Audio;
 using UnityEngine;
 
 public class Chair : InteractableObject
@@ -9,12 +10,14 @@ public class Chair : InteractableObject
     public void ChickChair()
     {
         Debug.Log("Chick Chair");
+        AudioManager.Instance.PlayRandomSFX(base.audioData);
         DialogueManager.Instance.LoadAndStartDialogue(dialougeChair);
     }
     
     public void SitOnChair()
     {
         Debug.Log("Chick Sit On Chair");
+        AudioManager.Instance.PlayRandomSFX(base.audioData);
         DialogueManager.Instance.LoadAndStartDialogue(dialougeSitOnChair);
         
         GameManager.Instance.Player.transform.position = sitOnPos.position;

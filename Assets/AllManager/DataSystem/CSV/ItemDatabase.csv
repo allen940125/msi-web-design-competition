@@ -9,8 +9,8 @@
 107,書本1(如何受歡迎),Items/None,Icons/書本1(如何受歡迎),書名：如何受歡迎，作者：半杯先生。書內寫著如何受人歡迎，例如要穿搭帥氣，學會如何說話風趣，將自己打扮得漂亮等。但卻在每個章節的結尾販賣自己的其他書。,Consumable,Poor,1,10,30,Buffs/NoneBoost
 108,書本2(如何做出帥氣髮型),Items/None,Icons/書本2(如何做出帥氣髮型),書名：如何做出帥氣髮型，作者：半杯先生。教導你如何做出帥氣的髮型，但其實只是將帥哥的髮型照抄下來而已。。,Consumable,Poor,1,10,30,Buffs/NoneBoost
 109,書本3(如何穿搭),Items/None,Icons/書本3(如何穿搭),書名：如何穿搭，作者：半杯先生。教導你如何穿的帥氣，穿出自信。但其實只是將藝人的衣服照抄下來而已。。,Consumable,Poor,1,10,30,Buffs/NoneBoost
-110,Clothes-One,Items/None,Icons/Clothes-One,第一件衣服。,Consumable,Poor,1,10,30,Buffs/NoneBoost
-111,Clothes-Two,Items/None,Icons/Clothes-Two,第二件衣服。,Consumable,Poor,1,10,30,Buffs/NoneBoost
-112,Clothes-Three,Items/None,Icons/Clothes-Three,第三件衣服。,Consumable,Poor,1,10,30,Buffs/NoneBoost
+110,Clothes-One,Items/None,Icons/Clothes-One,亮黃色的衣服配上讓人不知道是什麼的表情，讓人不清楚該做什麼評價。,Consumable,Poor,1,10,30,Buffs/NoneBoost
+111,Clothes-Two,Items/None,Icons/Clothes-Two,乍看之下像是純白色T-shirt，但是卻有不知為何的灰色色塊讓衣服看起來像是髒了。讓人不知道該怎麼評價 ,Consumable,Poor,1,10,30,Buffs/NoneBoost
+112,Clothes-Three,Items/None,Icons/Clothes-Three,淺藍色、藍色、白色相間的T-shirt，看起來像是國中訓導主任會穿的。,Consumable,Poor,1,10,30,Buffs/NoneBoost
 113,MSI筆電,Items/None,Icons/MSI筆電,全黑的機身，配上頂蓋上那用藍色和白色點綴出來的龍首，以及一顆橘紅色的眼睛吸引住目光。,Consumable,Poor,1,10,30,Buffs/NoneBoost
 114,MSI耳機,Items/None,Icons/MSI耳機,純黑色(取決與美術事後畫的顏色改變此處)的機身，配上標誌性的龍標示。,Consumable,Poor,1,10,30,Buffs/NoneBoost

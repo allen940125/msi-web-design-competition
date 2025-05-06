@@ -15,6 +15,8 @@ public class InteractionUI : MonoBehaviour {
         currentObject = obj;
         ClearOptions();
 
+        GameManager.Instance.Player.GetComponent<PlayerController>().isFinding = true;
+        
         // 檢查是否有需要直接觸發的選項
         var immediateOption = obj.interactionOptions.FirstOrDefault(opt => opt.isImmediate);
         if (immediateOption != null) {
@@ -38,11 +40,13 @@ public class InteractionUI : MonoBehaviour {
 
     public void HideOptions() {
         optionPanel.SetActive(false);
+        GameManager.Instance.Player.GetComponent<PlayerController>().isFinding = false;
         currentObject = null;
     }
 
     private void ClearOptions() {
         foreach (var btn in buttons) Destroy(btn.gameObject);
+        GameManager.Instance.Player.GetComponent<PlayerController>().isFinding = false;
         buttons.Clear();
     }
 }

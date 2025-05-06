@@ -1,4 +1,5 @@
 using System;
+using Game.Audio;
 using Game.UI;
 using Gamemanager;
 using UnityEngine;
@@ -16,7 +17,7 @@ public class Bookcase : InteractableObject
     public void TakeBookOnBookcase()
     {
         Debug.Log("TakeBookOnBookcase 在書櫃上拿書");
-        
+        AudioManager.Instance.PlayRandomSFX(base.audioData);
         if (currentTakeId <= maxTakeId)
         {
             currentTakeId++;
