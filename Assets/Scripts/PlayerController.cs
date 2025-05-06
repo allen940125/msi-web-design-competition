@@ -20,8 +20,8 @@ public class PlayerController : MonoBehaviour {
         // 如果有移動，就根據移動方向更新旋轉（假設預設朝向右邊）
         if (movement != Vector2.zero) {
             // 計算角度，將弧度轉換成角度（以Z軸為旋轉軸）
-            float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            //float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg;
+            //transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
     }
 

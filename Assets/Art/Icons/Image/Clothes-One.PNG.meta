@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c504dda30900a474fa89934bdf37b9fd
+guid: 93d5022a0deef3b4cacfc3a42d484e95
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 650959048711006032
-    second: AudioTape_0
+      213: 5750647996884772681
+    second: Clothes-One_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AudioTape_0
+      name: Clothes-One_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 79
+        y: 0
         width: 600
-        height: 402
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 057eebd4ecba80900800000000000000
-      internalID: 650959048711006032
+      spriteID: 947e0aa82e76ecf40800000000000000
+      internalID: 5750647996884772681
       vertices: []
       indices: 
       edges: []
@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Clothes-One_0: 5750647996884772681
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

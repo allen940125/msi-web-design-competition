@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d488fa3a5001d264ea275d3b16869a17
+guid: 37ca1efd103842f40935109c8fcf7230
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5231366205957992080
-    second: Doll_0
+      213: 3431197065667803334
+    second: Clothes-Two_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Doll_0
+      name: Clothes-Two_0
       rect:
         serializedVersion: 2
-        x: 59
+        x: 0
         y: 0
-        width: 502
-        height: 581
+        width: 600
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 07114e317247667b0800000000000000
-      internalID: -5231366205957992080
+      spriteID: 6c8fd7d4d8f0e9f20800000000000000
+      internalID: 3431197065667803334
       vertices: []
       indices: 
       edges: []
@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Clothes-Two_0: 3431197065667803334
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -120,6 +120,10 @@ public class InteractionManager : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.F)) {
             if (!GameManager.Instance.UIManager.GetPanel<DialogueWindow>(UIType.DialogueWindow))
             {
+                if (DialogueManager.Instance.isItemAcquisitionInformationWindowOpen)
+                {
+                    return;
+                }
                 DetectInteractableObjects();
             }
         }

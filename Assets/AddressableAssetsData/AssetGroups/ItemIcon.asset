@@ -15,18 +15,8 @@ MonoBehaviour:
   m_GroupName: ItemIcon
   m_GUID: 9b1aba5155a75b04c9a44fab09748bc5
   m_SerializeEntries:
-  - m_GUID: 01b4ab68784a1804a8dc2c36bbbc85a7
-    m_Address: Assets/Art/Icons/Image/%E7%85%A7%E7%89%87 (2).png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 03f468de20fb9874b8be464c0938dbfc
     m_Address: "Icons/MSI\u8033\u6A5F"
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0ac78f724bd40db418a76263404f82f4
-    m_Address: Assets/Art/Icons/Image/%E7%85%A7%E7%89%87 (5).png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -45,6 +35,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 37ca1efd103842f40935109c8fcf7230
+    m_Address: Icons/Clothes-Two
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4ad494b2b1b664949b3bb8bf2ee11439
     m_Address: Icons/Money
     m_ReadOnly: 0
@@ -52,6 +47,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 88c6b0cfd44d7294b9c641b97baeedbd
     m_Address: "Icons/\u66F8\u672C1(\u5982\u4F55\u53D7\u6B61\u8FCE)"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 93d5022a0deef3b4cacfc3a42d484e95
+    m_Address: Icons/Clothes-One
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -65,13 +65,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b004a6be5e4ec5948b18a884c0f3144e
-    m_Address: "Icons/\u9304\u97F3\u6A5F"
+  - m_GUID: acec68a3daab2f347ba77228f44eb263
+    m_Address: Icons/Clothes-Three
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c455587dffd39ae479e4a2225309d148
-    m_Address: Assets/Art/Icons/Image/%E7%85%A7%E7%89%87 (4).png
+  - m_GUID: b004a6be5e4ec5948b18a884c0f3144e
+    m_Address: "Icons/\u9304\u97F3\u6A5F"
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

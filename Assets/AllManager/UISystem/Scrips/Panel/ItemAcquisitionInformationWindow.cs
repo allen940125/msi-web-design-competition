@@ -20,17 +20,32 @@ namespace Game.UI
         {
             base.Awake();
             closeButton.onClick.AddListener(ClosePanel);
+            DialogueManager.Instance.isItemAcquisitionInformationWindowOpen = true;
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            DialogueManager.Instance.isItemAcquisitionInformationWindowOpen = false;
         }
 
         private void Update()
         {
-            if (UnityEngine.Input.anyKeyDown)
+            if (
+                UnityEngine.Input.GetKeyDown(KeyCode.W) ||
+                UnityEngine.Input.GetKeyDown(KeyCode.A) ||
+                UnityEngine.Input.GetKeyDown(KeyCode.S) ||
+                UnityEngine.Input.GetKeyDown(KeyCode.D) ||
+                UnityEngine.Input.GetKeyDown(KeyCode.Space) ||
+                UnityEngine.Input.GetMouseButtonDown(0) // 左鍵
+            )
             {
                 // 這邊放你要做的事，例如：
                 ClosePanel();
-                Debug.Log("有按鍵被按下了！");
+                Debug.Log("偵測到指定按鍵被按下！");
             }
         }
+
 
         public void SwitchPanel(string textItem) 
         {

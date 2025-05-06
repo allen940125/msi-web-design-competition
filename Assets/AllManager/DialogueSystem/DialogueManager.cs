@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Game.UI;
 using UnityEngine;
 
 /// <summary>
@@ -21,6 +22,8 @@ public class DialogueManager : Singleton<DialogueManager>
 
     [SerializeField] private TextAsset _csvFile;             // 對話數據的CSV文件
 
+    public bool isItemAcquisitionInformationWindowOpen;
+    
     protected override void Awake()
     {
         base.Awake();
@@ -35,6 +38,11 @@ public class DialogueManager : Singleton<DialogueManager>
 
         if (Input.GetKeyDown(KeyCode.F))
         {
+            if (isItemAcquisitionInformationWindowOpen)
+            {
+                return;
+            }
+            
             Debug.Log("下一行");
             Proceed();
         }
