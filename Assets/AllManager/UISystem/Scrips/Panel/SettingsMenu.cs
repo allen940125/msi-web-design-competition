@@ -98,7 +98,8 @@ namespace Game.UI
         {
             Debug.Log("Click OnApplicationButtonClicked");
             AudioManager.Instance.PlayUISound(audio_NormalBtn);
-            GameManager.Instance.SceneTransitionManager.LoadScene(SceneType.TestGameScene1);
+            ClosePanel();
+            //GameManager.Instance.SceneTransitionManager.LoadScene(SceneType.TestGameScene1);
         }
 
         void OnCloseButtonClicked()

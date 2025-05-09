@@ -37,7 +37,7 @@ public class DialogueManager : Singleton<DialogueManager>
             PrintLinesById();
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonUp(0))
         {
             if (!_canProceed || isItemAcquisitionInformationWindowOpen)
             {

@@ -13,6 +13,7 @@ namespace Datamanager
     {
         public DataGroup DataGroup = new DataGroup();
         public RealTimePlayerData realTimePlayerData = new RealTimePlayerData();
+        public bool IsInitialized { get; private set; }
         public async Task InitDataMananger()
         {
             try
@@ -119,6 +120,7 @@ namespace Datamanager
             {
                 Debug.LogError($"❌ InitDataMananger 發生錯誤: {ex}");
             }
+            IsInitialized = true;
         }
         
         public T GetDataByID<T>(int id) where T : class

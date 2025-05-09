@@ -31,6 +31,7 @@ namespace Game.UI
         protected override void OnDestroy()
         {
             base.OnDestroy();
+            AudioManager.Instance.StopAllSFX();
             DialogueManager.Instance.isItemAcquisitionInformationWindowOpen = false;
         }
 

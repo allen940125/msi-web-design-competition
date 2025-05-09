@@ -176,6 +176,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentLineId: 0
   _csvFile: {fileID: 0}
+  isItemAcquisitionInformationWindowOpen: 0
+  _canProceed: 0
 --- !u!114 &8756391268631179391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,6 +203,7 @@ GameObject:
   - component: {fileID: 6609801465727653305}
   - component: {fileID: 9109667753695250241}
   - component: {fileID: 1791201213938415724}
+  - component: {fileID: 6716983992797722533}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -243,7 +246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   gameSo: {fileID: 11400000, guid: e3f21a659afc2bb48be5d9da5a0ae8e4, type: 2}
-  csvFile: {fileID: 4900000, guid: b5051ef54cf39ae42be5b862e29c2b9c, type: 3}
+  gameStartCsvFile: {fileID: 4900000, guid: 918813f82ef2804449f4cf966f381045, type: 3}
   sprite: {fileID: 0}
 --- !u!114 &1791201213938415724
 MonoBehaviour:
@@ -274,6 +277,19 @@ MonoBehaviour:
       SFXVolume: 0.5
       UIVolume: 0.5
   restartJson: 0
+--- !u!114 &6716983992797722533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376877183433635412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 018aa389e7cba7f40b303fe5dc2c6dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentFont: {fileID: 0}
 --- !u!1 &1533485286208890757
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,8 +436,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: ab6fa4c985f2a3a4bab72fdf71f166f7, type: 3}
+  m_Resource: {fileID: 8300000, guid: ab6fa4c985f2a3a4bab72fdf71f166f7, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

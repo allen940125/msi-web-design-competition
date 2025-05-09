@@ -1,4 +1,5 @@
 using System.Collections;
+using Datamanager;
 using Game.Input;
 using Game.SceneManagement;
 using UnityEngine;
@@ -31,13 +32,15 @@ public class GameManager : Singleton<GameManager>
 
     [Header("遊戲資料")]
     [SerializeField] private GameSo gameSo;
-    [SerializeField] private TextAsset csvFile;
+    [SerializeField] private TextAsset gameStartCsvFile;
     [SerializeField] private Sprite sprite;
     public GameSo GameSo 
     { 
         get => gameSo; 
         set => gameSo = value; 
     }
+    
+    [SerializeField] private BasePanel basePanel;
     
     protected override void Awake()
     {
@@ -55,19 +58,29 @@ public class GameManager : Singleton<GameManager>
         InputManagers.Initialize();
     }
     
-    private void Start()
+    private async void Start()
     {
+        Debug.Log("GameManager Start 初始化流程開始");
+        
+        // 等待資料初始化完成
+        var dataManager = GameContainer.Get<DataManager>();
+        await dataManager.InitDataMananger();
+
+        Debug.Log("✅ 所有初始化完成，開始遊戲");
+
+        // 初始化後再開始遊戲
         GameStart();
     }
+
 
     private void Update()
     {
         // 若 UIManager 為 null 可做防呆檢查
         UIManager?.Update();
-        
+        //Debug.Log("遊戲初始化結果 : " + GameContainer.Get<DataManager>().IsInitialized);
         if (UnityEngine.Input.GetKeyDown(KeyCode.H))
         {
-            DialogueManager.Instance.LoadAndStartDialogue(csvFile);
+            
         }
         // else if (UnityEngine.Input.GetKeyDown(KeyCode.H))
         // {
@@ -93,6 +106,9 @@ public class GameManager : Singleton<GameManager>
     public void GameStart()
     {
         // TODO: 實作遊戲開始流程
+        basePanel.ClosePanel();
+        player.GetComponent<PlayerController>().canMove = true;
+        DialogueManager.Instance.LoadAndStartDialogue(gameStartCsvFile);
     }
     
     public void GameOver()

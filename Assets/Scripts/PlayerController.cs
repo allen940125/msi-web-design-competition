@@ -7,10 +7,11 @@ public class PlayerController : MonoBehaviour {
     private Animator animator;
     private Vector2 movement;
 
-    // 假設你會從其他地方控制這些狀態
+    public bool canMove = true; // 🔹 當為 false 時無法移動
+
     public bool isMoving = false; 
-    public bool isFinding = false; // 可由其他系統設定
-    public bool isSitDown = false; // 是否觸發坐下
+    public bool isFinding = false; 
+    public bool isSitDown = false; 
 
     [Header("音效")]
     [SerializeField] AudioData moveAudioData;
@@ -21,31 +22,50 @@ public class PlayerController : MonoBehaviour {
         animator = GetComponent<Animator>();
     }
 
+    private Vector2 lastMoveDir = Vector2.down; // 預設角色初始面向
+
     void Update() 
     {
-        // 取得水平與垂直輸入
+        if (!canMove)
+        {
+            movement = Vector2.zero;
+            animator.SetBool("isMoving", false);
+            return;
+        }
+
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         movement.Normalize();
 
-        // 設定 Animator 參數
-        animator.SetFloat("MoveX", movement.x);
-        animator.SetFloat("MoveY", movement.y);
+        // 🔹 儲存最後一次有效的移動方向
+        if (movement.sqrMagnitude > 0.01f)
+        {
+            lastMoveDir = movement;
+            isMoving = true;
+        }
+        else
+        {
+            isMoving = false;
+        }
 
-        // 判斷是否正在移動
-        isMoving = movement.sqrMagnitude > 0.01f;
+        // 🔹 使用 lastMoveDir 設定動畫方向
+        animator.SetFloat("MoveX", lastMoveDir.x);
+        animator.SetFloat("MoveY", lastMoveDir.y);
+
         animator.SetBool("isMoving", isMoving);
-
-        // 設定 isFinding 狀態（你也可以在別的地方動態改變）
         animator.SetBool("isFinding", isFinding);
-
-        // 判斷是否坐下（觸發器只會執行一次）
         animator.SetBool("isSitDown", isSitDown);
     }
 
+
     void FixedUpdate() 
     {
-        Debug.Log(GameManager.Instance.MainGameMediator.RealTimePlayerData.PlayerMovementMultiplier);
+        if (!canMove)
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
+
         rb.linearVelocity = movement * (GameManager.Instance.MainGameMediator.RealTimePlayerData.PlayerMovementMultiplier * moveSpeed);
     }
 }

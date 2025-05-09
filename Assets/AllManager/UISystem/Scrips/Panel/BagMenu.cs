@@ -68,7 +68,7 @@ namespace Game.UI
             InventoryManager.InventoryPanelController.SetBagInfo(uiPanel, scrollViewContentStoreItemListGrid, prefabSlotStoreItem);
             
             GameManager.Instance.MainGameEvent.Send(new CursorToggledEvent() { ShowCursor = true });
-            GameManager.Instance.MainGameEvent.Send(new PlayerBagRefreshedEvent() { ItemControllerType = ItemControllerType.Equipment});
+            GameManager.Instance.MainGameEvent.Send(new PlayerBagRefreshedEvent() { ItemControllerType = ItemControllerType.Consumable });
         }
 
         #region 事件訂閱

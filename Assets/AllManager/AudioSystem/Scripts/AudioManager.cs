@@ -265,8 +265,55 @@ namespace Game.Audio
                 Debug.LogWarning($"No AudioConfig for scene: {currentSceneName}");
             }
         }
-    }
+        
+        #region 音效關閉
 
+        /// <summary>
+        /// 停止背景音樂播放
+        /// </summary>
+        public void StopMusic()
+        {
+            musicPlayer.Stop();
+        }
+
+        /// <summary>
+        /// 停止環境音播放
+        /// </summary>
+        public void StopAmbient()
+        {
+            ambientPlayer.Stop();
+        }
+
+        /// <summary>
+        /// 停止所有 SFX 撥放
+        /// </summary>
+        public void StopAllSFX()
+        {
+            sFXPlayer.Stop();
+
+            foreach (Transform child in sFXPlayer.transform)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+
+        /// <summary>
+        /// 停止所有 UI 音效撥放
+        /// </summary>
+        public void StopAllUI()
+        {
+            uIPlayer.Stop();
+
+            foreach (Transform child in uIPlayer.transform)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+
+        #endregion
+
+    }
+    
     [System.Serializable]
     public class AudioData
     {

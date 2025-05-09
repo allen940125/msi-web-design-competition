@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,10 +14,13 @@ namespace Game.UI
         [Header("Alpha Settings")]
         [SerializeField] private float maxAlpha = 1f;
         [SerializeField] private float minAlpha = 0f;
-
+            
         private bool isFading = false;
         private float targetAlpha;
 
+        [Header("Text Settings")]
+        [SerializeField] private TMP_Text text;
+        
         protected override void Awake()
         {
             base.Awake();
@@ -129,6 +133,11 @@ namespace Game.UI
             fadeImage.sprite = null;
             fadeColor = Color.black;
             fadeImage.color = new Color(fadeColor.r, fadeColor.g, fadeColor.b, 0f);
+        }
+
+        public void SetText(string text)
+        {
+            this.text.text = text;
         }
     }
 }
