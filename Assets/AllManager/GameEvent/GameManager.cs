@@ -34,6 +34,9 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private GameSo gameSo;
     [SerializeField] private TextAsset gameStartCsvFile;
     [SerializeField] private Sprite sprite;
+
+    public bool GamePlaying;
+    
     public GameSo GameSo 
     { 
         get => gameSo; 
