@@ -20,6 +20,8 @@ public class VideoManager : Singleton<VideoManager>
     private Coroutine currentCoroutine;
     private bool isPlaying = false;
 
+    [SerializeField] GameObject videoMenu;
+    
     protected override void Awake()
     {
         base.Awake();
@@ -81,7 +83,7 @@ public class VideoManager : Singleton<VideoManager>
         yield return new WaitForSeconds((float)clip.length);
 
         EndPlayback();
-        SceneManager.LoadScene("MainMenu");
+        //SceneManager.LoadScene("MainMenu");
     }
 
     private IEnumerator PlayWithFlicker(VideoClip clip)
