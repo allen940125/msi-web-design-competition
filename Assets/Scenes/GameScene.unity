@@ -1003,6 +1003,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameHUD
       objectReference: {fileID: 0}
+    - target: {fileID: 8724786377403777686, guid: 4156a6e2b3663a240bf005ebd2e77976, type: 3}
+      propertyPath: openBagMenuButton
+      value: 
+      objectReference: {fileID: 1905180540}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8927,6 +8931,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1891138295}
   m_CullTransparentMesh: 1
+--- !u!114 &1905180540 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5904090808995703562, guid: 4156a6e2b3663a240bf005ebd2e77976, type: 3}
+  m_PrefabInstance: {fileID: 230751181}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1918406519
 GameObject:
   m_ObjectHideFlags: 0
