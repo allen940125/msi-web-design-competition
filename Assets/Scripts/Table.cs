@@ -53,12 +53,13 @@ public class Table : InteractableObject
         {
             // ✅ 已經切換過電腦，播放新電腦的對話
             DialogueManager.Instance.LoadAndStartDialogue(_dialogueFileClickOnTableComputer_SwitchComputer);
+            VideoManager.Instance.PlayVideo("IsNewComputer", false);
         }
         else
         {
             // ❌ 尚未切換電腦，播放雜訊與對話
-            AudioManager.Instance.PlaySFX(_audioClickOnTableComputer_NoSwitchComputer);
             DialogueManager.Instance.LoadAndStartDialogue(_dialogueFileClickOnTableComputer_NoSwitchComputer);
+            VideoManager.Instance.PlayVideo("NotNewComputer", false);
         }
     }
 

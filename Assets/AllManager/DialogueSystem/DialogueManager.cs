@@ -45,7 +45,7 @@ public class DialogueManager : Singleton<DialogueManager>
 
         if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonUp(0))
         {
-            if (!_canProceed || isItemAcquisitionInformationWindowOpen)
+            if (!_canProceed || isItemAcquisitionInformationWindowOpen || GameManager.Instance.GamePlaying == false)
             {
                 return;
             }
