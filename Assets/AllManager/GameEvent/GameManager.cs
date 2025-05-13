@@ -80,7 +80,7 @@ public class GameManager : Singleton<GameManager>
         //Debug.Log("遊戲初始化結果 : " + GameContainer.Get<DataManager>().IsInitialized);
         if (UnityEngine.Input.GetKeyDown(KeyCode.H))
         {
-            
+
         }
         // else if (UnityEngine.Input.GetKeyDown(KeyCode.H))
         // {

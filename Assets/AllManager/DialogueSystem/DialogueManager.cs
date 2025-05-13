@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
+using Game.Audio;
 using Game.UI;
 using UnityEngine;
 
@@ -29,7 +30,12 @@ public class DialogueManager : Singleton<DialogueManager>
     {
         base.Awake();
     }
-
+    
+    public TextAsset _dialogueFileAsItem105_NoHave114;
+    public AudioData _audioAsItem105_NoHave114;
+    public TextAsset _dialogueFileAsItem105_Have114;
+    public AudioData _audioAsItem105_Have114;
+    
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.M))

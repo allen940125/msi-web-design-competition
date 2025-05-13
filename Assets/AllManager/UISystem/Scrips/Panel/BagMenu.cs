@@ -1,3 +1,4 @@
+using Game.Audio;
 using Gamemanager;
 using TMPro;
 using UnityEngine;
@@ -30,17 +31,10 @@ namespace Game.UI
         protected override void Awake()
         {
             base.Awake();
-
             
             UIFontManager.Instance.ApplyFont(selectedItemName);
             UIFontManager.Instance.ApplyFont(selectedItemDescription);
-            // Addressables.LoadAssetAsync<TMP_FontAsset>("\"Font/GenYoGothic-B SDF").Completed += handle =>
-            // {
-            //     selectedItemDescription.font = handle.Result;
-            //     selectedItemName.font = handle.Result;
-            // };
 
-            
             GameManager.Instance.UIManager.ClosePanel(UIType.GameHUD);
            
             //設定通用按鈕
@@ -90,6 +84,7 @@ namespace Game.UI
             {
                 return;
             }
+            selectedItemIcon.color = new Color(255, 255, 255, 255f);
             selectedItemIcon.sprite = inventoryItemRuntimeData.BaseTemplete.ItemIconPath;
 
             selectedItemName.text = inventoryItemRuntimeData.BaseTemplete.Name;
@@ -120,6 +115,19 @@ namespace Game.UI
         {
             if (InventoryManager.Instance.curClickInventoryItemRuntimeData != null)
             {
+                if (InventoryManager.Instance.GetInventoryData(105) != null)
+                {
+                    if (InventoryManager.Instance.GetInventoryData(114) != null)
+                    {
+                        Debug.Log("這下能聽清楚了吧？讓我聽聽這裏面都是些什麼。");
+                        DialogueManager.Instance.LoadAndStartDialogue(DialogueManager.Instance._dialogueFileAsItem105_Have114);
+                        AudioManager.Instance.PlaySFX(DialogueManager.Instance._audioAsItem105_Have114);
+                        return;
+                    }
+                    DialogueManager.Instance.LoadAndStartDialogue(DialogueManager.Instance._dialogueFileAsItem105_NoHave114);
+                    AudioManager.Instance.PlaySFX(DialogueManager.Instance._audioAsItem105_NoHave114);
+                    Debug.Log("吵死了，什麼都聽不到，這人怎麼沒有一個東西是好的阿。看來得找到一個好\n一點的耳機才能聽了。");
+                }
                 
             }
         }
