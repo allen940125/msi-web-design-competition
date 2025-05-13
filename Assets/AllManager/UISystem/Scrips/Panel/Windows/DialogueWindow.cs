@@ -8,6 +8,12 @@ using UnityEngine.UI;
 
 public class DialogueWindow : BasePanel
 {
+    [SerializeField] Image characterImage;
+    
+    [SerializeField] Sprite playerSprite;
+    [SerializeField] Sprite narrationSprite;
+
+    
     [SerializeField] TMP_Text characterNameText;
     [SerializeField] TMP_Text dialogueBodyText;
     [SerializeField] GameObject optionBtnPrefab;
@@ -40,10 +46,26 @@ public class DialogueWindow : BasePanel
 
     private void HandleLine(DialogueLine line)
     {
+        switch (line.CharacterName)
+        {
+            case "玩家":
+                characterImage.color = new Color(255, 255, 255, 255);
+                characterImage.sprite = playerSprite;
+                break;
+            case "旁白":
+                characterImage.color = new Color(255, 255, 255, 0);
+                break;
+            default:
+                characterImage.color = new Color(255, 255, 255, 255);
+                characterImage.sprite = playerSprite; // 或者放一個預設圖
+                break;
+        }
+
         characterNameText.text = line.CharacterName;
         dialogueBodyText.text = line.Text;
         ClearOptions();
     }
+
 
     private void ShowOptions(List<DialogueLine> opts)
     {

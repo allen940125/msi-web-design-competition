@@ -3,7 +3,7 @@
 101,HealthPotion,Items/HealthPotion,Icons/HealthPotionIcon,紅藥水用於回復血量,Consumable,Common,1,10,50,Buffs/HealthBoost
 102,ManaPotion,Items/ManaPotion,Icons/ManaPotionIcon,藍藥水用於回復魔力,Consumable,Poor,1,10,30,Buffs/ManaBoost
 103,MSI玩偶,Items/None,Icons/MSI玩偶,一隻用紅色和黃色做成的玩偶，有著紅色的雙角和黃色的翅膀，以及一條紅色的尾巴上面有著黃色的骨板。,Consumable,Poor,1,10,30,Buffs/NoneBoost
-104,小黃書,Items/None,Icons/小黃書,書名：我才不會認輸，作者：Neko汁男。封面為一個人被綑綁住，不知為何書頁間黏黏的。,Consumable,Poor,1,10,30,Buffs/NoneBoost
+104,封面斑駁的書,Items/None,Icons/小黃書,一本因過度翻閱導致看不清楚封面的書，書頁和書頁之間被不明液體黏住，讓你不是很想翻開。,Consumable,Poor,1,10,30,Buffs/NoneBoost
 105,錄音機,Items/None,Icons/錄音機,藏在地板下的錄音機，裡面已經有錄好聲音了，或許能聽到什麼。,Consumable,Poor,1,10,30,Buffs/NoneBoost
 106,衛生紙團,Items/None,Icons/衛生紙團,揉成一團丟在電腦旁的衛生紙團，不知道為什麼濕濕的。,Consumable,Poor,1,10,30,Buffs/NoneBoost
 107,書本1(如何受歡迎),Items/None,Icons/書本1(如何受歡迎),書名：如何受歡迎，作者：半杯先生。書內寫著如何受人歡迎，例如要穿搭帥氣，學會如何說話風趣，將自己打扮得漂亮等。但卻在每個章節的結尾販賣自己的其他書。,Consumable,Poor,1,10,30,Buffs/NoneBoost

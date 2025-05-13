@@ -579,6 +579,9 @@ MonoBehaviour:
   isSetInputActive: 1
   audio_NormalBtn:
     audioClip: {fileID: 8300000, guid: 0596cbd8bd1cda54b8d6cc5835bc7712, type: 3}
+  characterImage: {fileID: 7523791198270888687}
+  playerSprite: {fileID: -2014824036777839921, guid: dd38f6ad3d32365428b1645d197bf172, type: 3}
+  narrationSprite: {fileID: 0}
   characterNameText: {fileID: 6948396685587171785}
   dialogueBodyText: {fileID: 2913161740147545706}
   optionBtnPrefab: {fileID: 866753888574411921, guid: bb45378e63e11cd419f470402d70c150, type: 3}
