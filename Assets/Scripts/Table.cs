@@ -12,6 +12,8 @@ public class Table : InteractableObject
     [SerializeField] private TextAsset dialougeOnBigTable;
 
     [Header("電腦相關")]
+    [SerializeField] private GameObject closeComputer;
+    
     [SerializeField] private TextAsset _dialogueFileClickOnTableComputer_SwitchComputer;
     [SerializeField] private TextAsset _dialogueFileClickOnTableComputer_NoSwitchComputer;
     [SerializeField] private AudioData _audioClickOnTableComputer_NoSwitchComputer;
@@ -76,6 +78,7 @@ public class Table : InteractableObject
         {
             DialogueManager.Instance.LoadAndStartDialogue(_dialogueFileClickOnTableComputer_SwitchComputerHaveItem113);
             _isComputerSwitched = true; // ✅ 狀態設為「已切換」
+            closeComputer.SetActive(false);
         }
         else
         {

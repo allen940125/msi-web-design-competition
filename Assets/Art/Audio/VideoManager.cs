@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 using System.IO;
+using Game.Audio;
 
 public class VideoManager : Singleton<VideoManager>
 {
@@ -20,9 +21,14 @@ public class VideoManager : Singleton<VideoManager>
     private Dictionary<string, string> videoDict;
     private Coroutine currentCoroutine;
     private bool isPlaying = false;
+    
+    [SerializeField] private string currentVideoName;
+
 
     [SerializeField] GameObject videoMenu;
 
+    private float stepMusicVolume;
+    
     protected override void Awake()
     {
         base.Awake();
@@ -40,12 +46,14 @@ public class VideoManager : Singleton<VideoManager>
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.O))
-            PlayVideo("NotNewComputer", false);
-        else if (Input.GetKeyDown(KeyCode.P))
-            PlayVideo("IsNewComputer", false);
-        else if (Input.GetKeyDown(KeyCode.Escape) && isPlaying)
+        // if (Input.GetKeyDown(KeyCode.O))
+        //     PlayVideo("NotNewComputer", false);
+        // else if (Input.GetKeyDown(KeyCode.P))
+        //     PlayVideo("IsNewComputer", false);
+        if (Input.GetKeyDown(KeyCode.Escape) && isPlaying && currentVideoName != "IsNewComputer")
+        {
             StopVideoEarly();
+        }
 
         if (isPlaying)
         {
@@ -65,6 +73,11 @@ public class VideoManager : Singleton<VideoManager>
 
     public void PlayVideo(string videoName, bool withFlick)
     {
+        stepMusicVolume = AudioManager.Instance.MusicVolume;
+        AudioManager.Instance.MusicVolume = 0f;
+        
+        currentVideoName = videoName;
+        
         if (videoDict.TryGetValue(videoName, out string fileName))
         {
             string path = Path.Combine(Application.streamingAssetsPath, fileName);
@@ -142,6 +155,8 @@ public class VideoManager : Singleton<VideoManager>
 
     private void StopVideoEarly()
     {
+        AudioManager.Instance.MusicVolume = stepMusicVolume;
+        
         if (currentCoroutine != null)
         {
             StopCoroutine(currentCoroutine);
@@ -156,6 +171,8 @@ public class VideoManager : Singleton<VideoManager>
 
     private void EndPlayback()
     {
+        AudioManager.Instance.MasterVolume = stepMusicVolume;
+        
         videoPlayer.targetCameraAlpha = 0f;
         isPlaying = false;
         SetVideoUIActive(false); // 👈 新增這行

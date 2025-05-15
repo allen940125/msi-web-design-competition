@@ -2106,11 +2106,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 350512229}
   m_CullTransparentMesh: 1
---- !u!82 &381876243 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 8531403088222845610, guid: 89cef4625244a8840acf009336947188, type: 3}
-  m_PrefabInstance: {fileID: 2008436147}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &387646106
 GameObject:
   m_ObjectHideFlags: 0
@@ -3872,6 +3867,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 637721297}
   m_CullTransparentMesh: 1
+--- !u!82 &648824571 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7299298985299998262, guid: 89cef4625244a8840acf009336947188, type: 3}
+  m_PrefabInstance: {fileID: 2008436147}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &653397447 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 664880832595479665, guid: 54f3fdc807bfd614e8741bfc36c9e60c, type: 3}
@@ -5036,6 +5036,7 @@ MonoBehaviour:
   dialougeOnTable: {fileID: 4900000, guid: 03c2d59e5bfb78b499af9046ef33cc99, type: 3}
   dialougeOnTableSafe: {fileID: 4900000, guid: f3232e4780529fd47a8ff9a53c9d4079, type: 3}
   dialougeOnBigTable: {fileID: 0}
+  closeComputer: {fileID: 0}
   _dialogueFileClickOnTableComputer_SwitchComputer: {fileID: 0}
   _dialogueFileClickOnTableComputer_NoSwitchComputer: {fileID: 4900000, guid: a006c0b9aa0cc41409a50bd2c589b652, type: 3}
   _audioClickOnTableComputer_NoSwitchComputer:
@@ -5616,6 +5617,7 @@ Transform:
   m_Children:
   - {fileID: 1074316137}
   - {fileID: 983014283}
+  - {fileID: 1221613963}
   m_Father: {fileID: 785215803}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &945343884
@@ -5659,6 +5661,7 @@ MonoBehaviour:
   dialougeOnTable: {fileID: 0}
   dialougeOnTableSafe: {fileID: 0}
   dialougeOnBigTable: {fileID: 0}
+  closeComputer: {fileID: 1221613962}
   _dialogueFileClickOnTableComputer_SwitchComputer: {fileID: 4900000, guid: e260a4baf558afa49ab67bf301c156bd, type: 3}
   _dialogueFileClickOnTableComputer_NoSwitchComputer: {fileID: 4900000, guid: a006c0b9aa0cc41409a50bd2c589b652, type: 3}
   _audioClickOnTableComputer_NoSwitchComputer:
@@ -7082,6 +7085,93 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 10
   m_TargetDisplay: 0
+--- !u!1 &1221613962
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1221613963}
+  - component: {fileID: 1221613964}
+  m_Layer: 0
+  m_Name: "\u7167\u7247 (4)_0 (1)"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1221613963
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221613962}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.0039, y: 0.7959, z: -0.12}
+  m_LocalScale: {x: 2.7487104, y: 2.7128952, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 945343883}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1221613964
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221613962}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -1928200300737814378, guid: dbb7b90e6aae6ca4fb77c50eecfa4b95, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1.6806723, y: 1.0644258}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1290570946
 GameObject:
   m_ObjectHideFlags: 0
@@ -8182,7 +8272,7 @@ MonoBehaviour:
   zeroNumberButton: {fileID: 311169144}
   enterButton: {fileID: 103470224}
   enterPassword: {fileID: 282136266}
-  targetPassword: 131919
+  targetPassword: 131909
 --- !u!1 &1784829749
 GameObject:
   m_ObjectHideFlags: 0
@@ -10554,7 +10644,7 @@ PrefabInstance:
     - target: {fileID: 7129852192290858596, guid: bbca19af6d1098f4da5c787708392ed9, type: 3}
       propertyPath: 'm_TargetAudioSources.Array.data[0]'
       value: 
-      objectReference: {fileID: 381876243}
+      objectReference: {fileID: 648824571}
     - target: {fileID: 8691533172899383238, guid: bbca19af6d1098f4da5c787708392ed9, type: 3}
       propertyPath: m_Name
       value: VideoPlayer

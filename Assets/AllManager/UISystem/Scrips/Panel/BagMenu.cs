@@ -49,7 +49,7 @@ namespace Game.UI
         {
             base.OnDestroy();
             
-            GameManager.Instance.UIManager.OpenPanel<GameHUD>(UIType.GameHUD);
+            //GameManager.Instance.UIManager.OpenPanel<GameHUD>(UIType.GameHUD);
             
             // 取消訂閱事件，避免記憶體洩漏
             GameManager.Instance.MainGameEvent.Unsubscribe<InventoryItemClickedEvent>();
