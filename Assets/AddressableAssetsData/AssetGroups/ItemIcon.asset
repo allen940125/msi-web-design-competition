@@ -45,6 +45,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4c255cb973a68c24194ddd0f14045d15
+    m_Address: "Icons/\u5C01\u9762\u6591\u99C1\u7684\u66F8"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 88c6b0cfd44d7294b9c641b97baeedbd
     m_Address: "Icons/\u66F8\u672C1(\u5982\u4F55\u53D7\u6B61\u8FCE)"
     m_ReadOnly: 0

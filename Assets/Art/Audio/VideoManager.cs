@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
+using System.IO;
 
 public class VideoManager : Singleton<VideoManager>
 {
@@ -10,25 +11,25 @@ public class VideoManager : Singleton<VideoManager>
     public class VideoEntry
     {
         public string videoName;
-        public VideoClip clip;
+        public string fileName; // 檔名，例如 "intro.ogv"
     }
 
     public VideoPlayer videoPlayer;
     public List<VideoEntry> videos;
 
-    private Dictionary<string, VideoClip> videoDict;
+    private Dictionary<string, string> videoDict;
     private Coroutine currentCoroutine;
     private bool isPlaying = false;
 
     [SerializeField] GameObject videoMenu;
-    
+
     protected override void Awake()
     {
         base.Awake();
-        videoDict = new Dictionary<string, VideoClip>();
+        videoDict = new Dictionary<string, string>();
         foreach (var entry in videos)
         {
-            videoDict[entry.videoName] = entry.clip;
+            videoDict[entry.videoName] = entry.fileName;
         }
     }
 
@@ -45,7 +46,7 @@ public class VideoManager : Singleton<VideoManager>
             PlayVideo("IsNewComputer", false);
         else if (Input.GetKeyDown(KeyCode.Escape) && isPlaying)
             StopVideoEarly();
-        
+
         if (isPlaying)
         {
             GameManager.Instance.Player.GetComponent<PlayerController>().canMove = false;
@@ -56,17 +57,33 @@ public class VideoManager : Singleton<VideoManager>
         }
     }
 
+    private void SetVideoUIActive(bool active)
+    {
+        if (videoMenu != null)
+            videoMenu.SetActive(active);
+    }
+
     public void PlayVideo(string videoName, bool withFlick)
     {
-        if (videoDict.TryGetValue(videoName, out VideoClip clip))
+        if (videoDict.TryGetValue(videoName, out string fileName))
         {
+            string path = Path.Combine(Application.streamingAssetsPath, fileName);
+
+#if UNITY_WEBGL
+            path = path.Replace("file://", ""); // WebGL 中不要加 file://
+#else
+        if (!path.StartsWith("file://"))
+            path = "file://" + path;
+#endif
+
             if (currentCoroutine != null) StopCoroutine(currentCoroutine);
             isPlaying = true;
+            SetVideoUIActive(true); // 👈 新增這行
 
             if (withFlick)
-                currentCoroutine = StartCoroutine(PlayWithFlicker(clip));
+                currentCoroutine = StartCoroutine(PlayWithFlicker(path));
             else
-                currentCoroutine = StartCoroutine(PlayNormalVideo(clip));
+                currentCoroutine = StartCoroutine(PlayNormalVideo(path));
         }
         else
         {
@@ -74,21 +91,34 @@ public class VideoManager : Singleton<VideoManager>
         }
     }
 
-    private IEnumerator PlayNormalVideo(VideoClip clip)
+    private IEnumerator PlayNormalVideo(string url)
     {
-        videoPlayer.clip = clip;
+        videoPlayer.url = url;
+        videoPlayer.Prepare();
+
+        while (!videoPlayer.isPrepared)
+        {
+            yield return null;
+        }
+
         videoPlayer.targetCameraAlpha = 1f;
         videoPlayer.Play();
 
-        yield return new WaitForSeconds((float)clip.length);
+        yield return new WaitForSeconds((float)videoPlayer.length);
 
         EndPlayback();
-        //SceneManager.LoadScene("MainMenu");
     }
 
-    private IEnumerator PlayWithFlicker(VideoClip clip)
+    private IEnumerator PlayWithFlicker(string url)
     {
-        videoPlayer.clip = clip;
+        videoPlayer.url = url;
+        videoPlayer.Prepare();
+
+        while (!videoPlayer.isPrepared)
+        {
+            yield return null;
+        }
+
         videoPlayer.Play();
 
         float flickerTime = 2f;
@@ -104,7 +134,7 @@ public class VideoManager : Singleton<VideoManager>
 
         videoPlayer.targetCameraAlpha = 1f;
 
-        yield return new WaitForSeconds((float)clip.length - flickerTime);
+        yield return new WaitForSeconds((float)videoPlayer.length - flickerTime);
 
         EndPlayback();
         PlayVideo("POPOPO", false);
@@ -121,13 +151,13 @@ public class VideoManager : Singleton<VideoManager>
         videoPlayer.Stop();
         EndPlayback();
 
-        // 選擇回主選單或其他處理方式
-        SceneManager.LoadScene("MainMenu");
+        //SceneManager.LoadScene("MainMenu");
     }
 
     private void EndPlayback()
     {
         videoPlayer.targetCameraAlpha = 0f;
         isPlaying = false;
+        SetVideoUIActive(false); // 👈 新增這行
     }
 }

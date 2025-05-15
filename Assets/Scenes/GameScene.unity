@@ -6998,7 +6998,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1180602193
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10526,6 +10526,26 @@ PrefabInstance:
     - target: {fileID: 1933971582797646889, guid: bbca19af6d1098f4da5c787708392ed9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194238583364978030, guid: bbca19af6d1098f4da5c787708392ed9, type: 3}
+      propertyPath: videoMenu
+      value: 
+      objectReference: {fileID: 1180602192}
+    - target: {fileID: 4194238583364978030, guid: bbca19af6d1098f4da5c787708392ed9, type: 3}
+      propertyPath: videos.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 32900000, guid: 8a9a2f70473f0d74095e17431bc45af5, type: 3}
+    - target: {fileID: 4194238583364978030, guid: bbca19af6d1098f4da5c787708392ed9, type: 3}
+      propertyPath: videos.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 32900000, guid: 8c58d602e7b227a40bfd0bc675ad7ef8, type: 3}
+    - target: {fileID: 4194238583364978030, guid: bbca19af6d1098f4da5c787708392ed9, type: 3}
+      propertyPath: videos.Array.data[0].fileName
+      value: lag.mp4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194238583364978030, guid: bbca19af6d1098f4da5c787708392ed9, type: 3}
+      propertyPath: videos.Array.data[1].fileName
+      value: msi_brand2023.mp4
       objectReference: {fileID: 0}
     - target: {fileID: 7129852192290858596, guid: bbca19af6d1098f4da5c787708392ed9, type: 3}
       propertyPath: m_TargetCamera
