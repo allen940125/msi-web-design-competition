@@ -128,6 +128,17 @@ namespace Game.UI
                     AudioManager.Instance.PlaySFX(DialogueManager.Instance._audioAsItem105_NoHave114);
                     Debug.Log("吵死了，什麼都聽不到，這人怎麼沒有一個東西是好的阿。看來得找到一個好\n一點的耳機才能聽了。");
                 }
+
+                if (InventoryManager.Instance.GetInventoryData(114) != null)
+                {
+                    if (InventoryManager.Instance.GetInventoryData(105) != null)
+                    {
+                        Debug.Log("這下能聽清楚了吧？讓我聽聽這裏面都是些什麼。");
+                        DialogueManager.Instance.LoadAndStartDialogue(DialogueManager.Instance._dialogueFileAsItem105_Have114);
+                        AudioManager.Instance.PlaySFX(DialogueManager.Instance._audioAsItem105_Have114);
+                        return;
+                    }
+                }
                 
             }
         }

@@ -7508,7 +7508,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1512297895
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10774,6 +10774,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1180602192}
     - target: {fileID: 4194238583364978030, guid: bbca19af6d1098f4da5c787708392ed9, type: 3}
+      propertyPath: videos.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194238583364978030, guid: bbca19af6d1098f4da5c787708392ed9, type: 3}
       propertyPath: videos.Array.data[0].clip
       value: 
       objectReference: {fileID: 32900000, guid: 8a9a2f70473f0d74095e17431bc45af5, type: 3}
@@ -10788,6 +10792,14 @@ PrefabInstance:
     - target: {fileID: 4194238583364978030, guid: bbca19af6d1098f4da5c787708392ed9, type: 3}
       propertyPath: videos.Array.data[1].fileName
       value: msi_brand2023.mp4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194238583364978030, guid: bbca19af6d1098f4da5c787708392ed9, type: 3}
+      propertyPath: videos.Array.data[2].fileName
+      value: Opening.mp4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194238583364978030, guid: bbca19af6d1098f4da5c787708392ed9, type: 3}
+      propertyPath: videos.Array.data[2].videoName
+      value: Opening
       objectReference: {fileID: 0}
     - target: {fileID: 7129852192290858596, guid: bbca19af6d1098f4da5c787708392ed9, type: 3}
       propertyPath: m_TargetCamera

@@ -27,7 +27,7 @@ public class VideoManager : Singleton<VideoManager>
 
     [SerializeField] GameObject videoMenu;
 
-    private float stepMusicVolume;
+    private float stepMusicVolume = 0.5f;
     
     protected override void Awake()
     {
@@ -42,6 +42,12 @@ public class VideoManager : Singleton<VideoManager>
     private void Start()
     {
         videoPlayer.targetCameraAlpha = 0f;
+        PlayVideo("Opening", false);
+        AudioManager.Instance.MasterVolume = 0.5f;
+        AudioManager.Instance.MusicVolume = 0.5f;
+        AudioManager.Instance.UIVolume = 0.5f;
+        AudioManager.Instance.SFXVolume = 0.5f;
+        AudioManager.Instance.AmbientVolume = 0.5f;
     }
 
     private void Update()
@@ -50,11 +56,14 @@ public class VideoManager : Singleton<VideoManager>
         //     PlayVideo("NotNewComputer", false);
         // else if (Input.GetKeyDown(KeyCode.P))
         //     PlayVideo("IsNewComputer", false);
-        if (Input.GetKeyDown(KeyCode.Escape) && isPlaying && currentVideoName != "IsNewComputer")
+        if (Input.GetKeyDown(KeyCode.Escape) && isPlaying)
         {
-            StopVideoEarly();
+            if (currentVideoName != "Opening" || currentVideoName != "IsNewComputer")
+            {
+                StopVideoEarly();
+            }
         }
-
+        
         if (isPlaying)
         {
             GameManager.Instance.Player.GetComponent<PlayerController>().canMove = false;
@@ -171,7 +180,7 @@ public class VideoManager : Singleton<VideoManager>
 
     private void EndPlayback()
     {
-        AudioManager.Instance.MasterVolume = stepMusicVolume;
+        AudioManager.Instance.MusicVolume = stepMusicVolume;
         
         videoPlayer.targetCameraAlpha = 0f;
         isPlaying = false;
