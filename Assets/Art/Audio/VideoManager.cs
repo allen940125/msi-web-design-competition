@@ -27,7 +27,7 @@ public class VideoManager : Singleton<VideoManager>
 
     [SerializeField] GameObject videoMenu;
 
-    private float stepMusicVolume = 0.5f;
+    [SerializeField] private float stepMusicVolume = 0.5f;
     
     protected override void Awake()
     {
@@ -41,13 +41,14 @@ public class VideoManager : Singleton<VideoManager>
 
     private void Start()
     {
-        videoPlayer.targetCameraAlpha = 0f;
-        PlayVideo("Opening", false);
         AudioManager.Instance.MasterVolume = 0.5f;
         AudioManager.Instance.MusicVolume = 0.5f;
         AudioManager.Instance.UIVolume = 0.5f;
         AudioManager.Instance.SFXVolume = 0.5f;
         AudioManager.Instance.AmbientVolume = 0.5f;
+        
+        videoPlayer.targetCameraAlpha = 0f;
+        PlayVideo("Opening", false);
     }
 
     private void Update()
