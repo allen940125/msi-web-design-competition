@@ -7188,7 +7188,7 @@ Transform:
   m_GameObject: {fileID: 1221613962}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0039, y: 0.7959, z: -0.12}
+  m_LocalPosition: {x: -0.0039, y: 0.7959, z: -0.72}
   m_LocalScale: {x: 2.7487104, y: 2.7128952, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10775,7 +10775,7 @@ PrefabInstance:
       objectReference: {fileID: 1180602192}
     - target: {fileID: 4194238583364978030, guid: bbca19af6d1098f4da5c787708392ed9, type: 3}
       propertyPath: videos.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4194238583364978030, guid: bbca19af6d1098f4da5c787708392ed9, type: 3}
       propertyPath: videos.Array.data[0].clip
@@ -10798,8 +10798,16 @@ PrefabInstance:
       value: Opening.mp4
       objectReference: {fileID: 0}
     - target: {fileID: 4194238583364978030, guid: bbca19af6d1098f4da5c787708392ed9, type: 3}
+      propertyPath: videos.Array.data[3].fileName
+      value: VER1.mp4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194238583364978030, guid: bbca19af6d1098f4da5c787708392ed9, type: 3}
       propertyPath: videos.Array.data[2].videoName
       value: Opening
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194238583364978030, guid: bbca19af6d1098f4da5c787708392ed9, type: 3}
+      propertyPath: videos.Array.data[3].videoName
+      value: End
       objectReference: {fileID: 0}
     - target: {fileID: 7129852192290858596, guid: bbca19af6d1098f4da5c787708392ed9, type: 3}
       propertyPath: m_TargetCamera

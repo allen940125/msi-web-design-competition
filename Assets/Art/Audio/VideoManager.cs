@@ -20,7 +20,7 @@ public class VideoManager : Singleton<VideoManager>
 
     private Dictionary<string, string> videoDict;
     private Coroutine currentCoroutine;
-    private bool isPlaying = false;
+    [SerializeField] private bool isPlaying = false;
     
     [SerializeField] private string currentVideoName;
 
@@ -59,11 +59,14 @@ public class VideoManager : Singleton<VideoManager>
         //     PlayVideo("IsNewComputer", false);
         if (Input.GetKeyDown(KeyCode.Escape) && isPlaying)
         {
-            if (currentVideoName != "Opening" || currentVideoName != "IsNewComputer")
+            // 如果影片不是 Opening 且不是 IsNewComputer 才能提前跳過
+            if (currentVideoName != "Opening" && currentVideoName != "IsNewComputer")
             {
+                Debug.Log(currentVideoName);
                 StopVideoEarly();
             }
         }
+
         
         if (isPlaying)
         {
@@ -186,5 +189,11 @@ public class VideoManager : Singleton<VideoManager>
         videoPlayer.targetCameraAlpha = 0f;
         isPlaying = false;
         SetVideoUIActive(false); // 👈 新增這行
+        
+        if (currentVideoName == "IsNewComputer")
+        {
+            Debug.Log(currentVideoName + "結束了");
+            PlayVideo("End", false);
+        }
     }
 }

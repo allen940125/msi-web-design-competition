@@ -81,6 +81,7 @@ public class InventoryManager : Singleton<InventoryManager>
 
     private void OnInventoryItemClickedEvent(InventoryItemClickedEvent cmd)
     {
+        Debug.Log("OnInventoryItemClickedEvent" + cmd.StoredInventoryItemRuntimeData);
         SetCurrentSelectedItem(cmd.StoredInventoryItemRuntimeData);
     }
 
