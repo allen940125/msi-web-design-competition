@@ -193,7 +193,7 @@ public class VideoManager : Singleton<VideoManager>
         if (currentVideoName == "IsNewComputer")
         {
             Debug.Log(currentVideoName + "結束了");
-            PlayVideo("End", false);
+           // PlayVideo("End", false);
         }
     }
 }
